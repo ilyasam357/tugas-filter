@@ -50,36 +50,36 @@ let displayProduct = async () => {
   });
 
   /* filter paket */
-  // Add event listeners for the filter buttons
-  document.addEventListener("click", function (event) {
-    if (event.target.matches("#hajiButton")) {
-      filterAndDisplay("haji");
-    } else if (event.target.matches("#umrahButton")) {
-      filterAndDisplay("umrah");
-    } else if (event.target.matches("#tourButton")) {
-      filterAndDisplay("tour");
-    }
-  });
-
   // Function to filter and display the data based on the selected keyword
-  function filterAndDisplay(keyword) {
+  function filterPaket(keyword) {
     // Filter the data based on the keyword
-    const filteredData = finalProduct.cards.filter((element) => {
+    const filteredPaket = finalProduct.cards.filter((element) => {
       return element.judul_paket.toLowerCase().includes(keyword);
     });
 
     // Clear the UI and display the filtered data
     productDiv.innerHTML = "";
-    filteredData.forEach((element) => {
+    filteredPaket.forEach((element) => {
       const cardDiv = createCardElement(element);
       productDiv.appendChild(cardDiv);
     });
   }
+
+   // Add event listeners for the filter buttons
+   document.addEventListener("click", function (event) {
+    if (event.target.matches("#hajiButton")) {
+      filterPaket("haji");
+    } else if (event.target.matches("#umrahButton")) {
+      filterPaket("umrah");
+    } else if (event.target.matches("#tourButton")) {
+      filterPaket("tour");
+    }
+  });
   /* end filter paket */
 
   /* filter harga */
   // Fungsi untuk menampilkan data berdasarkan filter harga
-  function displayFilteredData(filterFunction) {
+  function filterHarga(filterFunction) {
     const filterData = finalProduct.cards.filter(filterFunction);
     productDiv.innerHTML = "";
     filterData.forEach((element) => {
@@ -93,23 +93,23 @@ let displayProduct = async () => {
     .getElementById("buttonContainer")
     .addEventListener("click", function (event) {
       if (event.target.id === "hargaAllButton") {
-        displayFilteredData(() => true);
+        filterHarga(() => true);
       } else if (event.target.id === "hargaRendahButton") {
-        displayFilteredData((element) => {
+        filterHarga((element) => {
           return (
             element.price_quad_basic >= 13000000 &&
             element.price_quad_basic <= 30000000
           );
         });
       } else if (event.target.id === "hargaSedangButton") {
-        displayFilteredData((element) => {
+        filterHarga((element) => {
           return (
             element.price_quad_basic >= 30000000 &&
             element.price_quad_basic <= 40000000
           );
         });
       } else if (event.target.id === "hargaTertinggiButton") {
-        displayFilteredData((element) => {
+        filterHarga((element) => {
           return element.price_quad_basic >= 40000000;
         });
       }
