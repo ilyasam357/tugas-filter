@@ -6,9 +6,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="main.css" />
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-  />
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
   </head>
   <body>
     <div class="container">
@@ -22,14 +22,18 @@
         <h2>Paket</h2>
         <div class="categoryList">
           <label for="titleFilter1">
+            <input type="radio" name="filter" id="allButton" checked />
+            <span>all</span>
+          </label>
+          <label for="titleFilter2">
             <input type="radio" name="filter" id="hajiButton" />
             <span>haji</span>
           </label>
-          <label for="titleFilter1">
+          <label for="titleFilter3">
             <input type="radio" name="filter" id="umrahButton" />
             <span>umrah</span>
           </label>
-          <label for="titleFilter3">
+          <label for="titleFilter4">
             <input type="radio" name="filter" id="tourButton" />
             <span>tour</span>
           </label>
@@ -38,18 +42,10 @@
         <h2>Pilih Harga</h2>
         <div class="categoryList" id="buttonContainer">
           <label for="filterharga1">
-            <input type="radio" name="filter" id="hargaAllButton" />
-            <span>all</span>
-          </label>
-          <label for="filterharga2">
             <input type="radio" name="filter" id="hargaRendahButton" />
             <span>terendah</span>
           </label>
-          <label for="filterharga3">
-            <input type="radio" name="filter" id="hargaSedangButton" />
-            <span>sedang</span>
-          </label>
-          <label for="filterharga4">
+          <label for="filterharga2">
             <input type="radio" name="filter" id="hargaTertinggiButton" />
             <span>tertinggi</span>
           </label>
@@ -71,6 +67,10 @@
             <option value="11">november</option>
             <option value="12">desember</option>
           </select>
+        </div>
+
+        <h2>Pilih Tahun</h2>
+        <div id="yearMonthSelect">
         </div>
       </aside>
 
